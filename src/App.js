@@ -1,8 +1,14 @@
 import './App.css';
+import NavMenu from './components/NavMenu/NavMenu';
+import UserContextProvider from './context/UserContext';
 
 function App() {
   return (
-    <div className="App"></div>
+    <UserContextProvider>
+      <div className="App">
+        <NavMenu />
+      </div>
+    </UserContextProvider>
   );
 }
 
