@@ -1,0 +1,15 @@
+.home-page-container{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 400px;
+    height: 926px;
+}
+.home-page-button{
+    padding: 30px;
+    border-radius: 25px;
+}
+.home-page-logo{
+    width: 300px;
+    margin: 100px auto;    
+}
