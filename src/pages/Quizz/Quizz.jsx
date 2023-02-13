@@ -1,5 +1,9 @@
+import NavMenu from '../../components/NavMenu/NavMenu'
+
 export default function Quizz() {
     return (
-        <div></div>
+        <div>
+            <NavMenu />
+        </div>
     );
 }
