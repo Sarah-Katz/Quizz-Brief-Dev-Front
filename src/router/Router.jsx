@@ -6,7 +6,6 @@ import Profile from '../pages/Profile/Profile';
 import ProfileModif from '../pages/ProfileModif/ProfileModif';
 import Quizz from '../pages/Quizz/Quizz';
 import Results from '../pages/Results/Results';
-import Categories from '../pages/Categories/Categories';
 
 function Router() {
     return (
