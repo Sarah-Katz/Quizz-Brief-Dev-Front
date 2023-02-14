@@ -1,0 +1,31 @@
+.navmenu-burger {
+    z-index: 2;
+    position: fixed;
+    top: 25px;
+    left: 25px;
+}
+
+.navmenu-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 40vh;
+    background-color: red;
+}
+
+.navmenu-cross {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+}
+
+.navmenu-container.visible{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 40vh;
+    background-color: red;
+    transform: translateY(200px);
+}
