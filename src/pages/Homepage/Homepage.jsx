@@ -9,7 +9,7 @@ export default function Homepage() {
             <img className="home-page-logo" src="/img/favicon.ico" alt="LOGO" />
             <Link 
                 className="home-page-button" 
-                to='/categorie'>JOUER
+                to='/categories'>JOUER
             </Link>
             <LoginButton/>
         </div>
