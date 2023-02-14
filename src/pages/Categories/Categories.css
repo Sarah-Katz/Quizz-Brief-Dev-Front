@@ -1,0 +1,36 @@
+.categories-all-containt{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+}
+
+h1{
+    width: 90%;
+    padding-top: 50px;
+}
+
+ul{
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    list-style: none;
+    padding: 0;
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+    padding-bottom: 30px;
+}
+
+li{
+    background-color: rgb(68, 168, 168);
+    padding: 30px;
+    width: 300px;
+    border-radius: 25px;
+}

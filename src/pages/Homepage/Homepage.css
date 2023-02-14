@@ -1,15 +1,23 @@
 .home-page-container{
+    width: 100vw;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    margin: auto;
-    width: 400px;
-    height: 926px;
+    justify-content: space-around;
+    align-items: center;
+    
 }
 .home-page-button{
+    background-color: rgb(190, 114, 114);
     padding: 30px;
     border-radius: 25px;
+    width: 300px;
+    align-self: center;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
 }
 .home-page-logo{
-    width: 300px;
-    margin: 100px auto;    
+    width: 200px;
+    align-self: center;
 }
