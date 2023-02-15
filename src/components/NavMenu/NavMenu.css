@@ -1,0 +1,52 @@
+.navmenu-burger {
+  z-index: 2;
+  position: fixed;
+  top: 25px;
+  left: 25px;
+}
+
+.navmenu-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  gap: 2%;
+  left: 0;
+  top: -370px;
+  width: 100vw;
+  height: 40vh;
+  background-color: rgb(37, 156, 224);
+  transition: all 1s;
+  box-shadow: 0 0 10px gray;
+}
+
+.navmenu-link, .navmenu-button {
+    font-size: 16px;
+    color: white;
+    padding: 15px 30px;
+    width: 150px;
+    border-radius: 25px;
+    background-color: rgb(110, 110, 110);
+}
+
+.navmenu-link {
+    text-decoration: none;
+}
+
+.navmenu-button {
+    border: none;
+}
+
+.navmenu-cross {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+}
+
+.navmenu-container.visible {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transition: all 0.3s;
+}
