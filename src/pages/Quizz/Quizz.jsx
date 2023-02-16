@@ -6,6 +6,7 @@ var compteur = 0;
 var count = 0;
 var valeurBtn ='Suivant';
 
+
 export default function Quizz() {
   const [tableau, setTableau] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -21,8 +22,12 @@ export default function Quizz() {
     fetch(url)
       .then(response =>  response.json())
       .then(data => {
- 
-        const dataTrie = data.filter(une => une.categorie === 'Mathématiques');
+        var paramUrl = window.location.href.split('categorie=')
+       
+        console.log(decodeURI(paramUrl));
+        console.log(decodeURI(paramUrl[1]));
+
+        const dataTrie = data.filter(une => une.categorie === decodeURI(paramUrl[1]));
         
         setTableau(dataTrie)
         console.log(tableau);
@@ -150,18 +155,6 @@ export default function Quizz() {
       // console.log("mauvaise réponse");
     }
   }
-
-  
-  
-    // function AjoutParametreUrl(maCategorie) {
-    //   const categorie = (`categorie=${maCategorie}`);
-    //   const urlActuel = window.location.href;
-    //   const urlComplete = `${urlActuel}${urlActuel.includes('?') ? '&' : '?'}${categorie}`;
-    //   window.history.replaceState(null, null, urlComplete);
-    // }
-  
-  
-
 
 
   if(afficherResultat === false)
