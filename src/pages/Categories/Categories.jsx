@@ -34,10 +34,10 @@ export default function Categories() {
         <div>
             <div className="categories-all-containt">
                 <h1>Vous êtes connecté.e en tant que :</h1>
-                <ul>
+                <ul className='categories-container'>
                     {categories.map((category, i) => {
                         return (
-                            <li key={i}>
+                            <li className='categorie-buttons' key={i}>
                                 {category.categorie}
                             </li>
                         );
