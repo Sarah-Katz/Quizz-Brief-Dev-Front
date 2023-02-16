@@ -1,13 +1,21 @@
+.all-home-page{
+    overflow: hidden;
+    position: fixed;
+    height: calc(100vh - env(safe-area-inset-bottom));
+
+}
 .home-page-container{
     width: 100vw;
-    height: 100vh;
+    height: calc(90vh - env(safe-area-inset-bottom));
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    padding-bottom: env(safe-area-inset-bottom);
 }
 .home-page-button{
     background-color: rgb(190, 114, 114);
+    box-shadow: 0 0 10px black;
     padding: 30px;
     border-radius: 25px;
     width: 300px;

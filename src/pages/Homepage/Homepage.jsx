@@ -6,7 +6,7 @@ import LoginRegister from "../../components/LoginRegister/LoginRegister";
 
 export default function Homepage() {
     return (
-        <div>
+        <div className="all-home-page">
             <NavMenu />    
             <div className="home-page-container">
                 <img className="home-page-logo" src="/img/favicon.ico" alt="LOGO" />

@@ -2,4 +2,9 @@
     padding: 30px;
     width: 300px;
     border-radius: 25px;
+    font-size: 15px;
+    font-weight: bold;
+    border: none;
+    box-shadow: 0 0 10px rgb(190, 114, 114);
+
 }

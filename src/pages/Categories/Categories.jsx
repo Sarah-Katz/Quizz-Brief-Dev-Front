@@ -33,7 +33,7 @@ export default function Categories() {
     return (
         <div>
             <div className="categories-all-containt">
-                <h1>Vous êtes connecter en tant que :</h1>
+                <h1>Vous êtes connecté.e en tant que :</h1>
                 <ul>
                     {categories.map((category, i) => {
                         return (
