@@ -1,5 +1,6 @@
 import './Categories.css'
 import { React, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const url = 'http://localhost:8000/api/categories'
 
@@ -30,6 +31,16 @@ export default function Categories() {
         return <div>Loading...</div>;
     }
 
+
+     function AjoutParametreUrl(maCategorie) {
+      const categorie = (`categorie=${maCategorie}`);
+      const urlActuel = window.location.href;
+      const urlComplete = `${urlActuel}${urlActuel.includes('?') ? '&' : '?'}${categorie}`;
+      const urlCompleteEncoder = encodeURI(urlComplete)
+
+      window.history.replaceState(null, null, urlCompleteEncoder);
+    }
+    
     return (
         <div>
             <div className="categories-all-containt">
@@ -37,8 +48,9 @@ export default function Categories() {
                 <ul className='categories-container'>
                     {categories.map((category, i) => {
                         return (
-                            <li className='categorie-buttons' key={i}>
-                                {category.categorie}
+                            <li className='categorie-buttons' key={i} onClick ={() => AjoutParametreUrl(category.categorie)}>
+                                <Link to='/quizz'>{category.categorie}</Link>
+                                {/* {category.categorie} */}
                             </li>
                         );
                     })}
