@@ -1,3 +1,4 @@
+import { logDOM } from "@testing-library/react";
 import React, { useState, useEffect } from "react";
 
 const url = "http://localhost:8000/api/questions";
@@ -15,27 +16,35 @@ export default function Quizz() {
   const [question, setQuestion]= useState(0);
   const [afficherResultat, setAfficherResultat] = useState(false);
   const [afficherResultatHtml, setAfficherResultatHtml] = useState();
+  const [demarrer, setDemarrer] = useState(false);
+  const [timer, setTimer] = useState(20);
+  const [runTimer, setRunTimer] = useState(false);
+ 
+
+
+
+ 
 
 
   useEffect(() => {
     setIsLoading(true);
+  
     fetch(url)
       .then(response =>  response.json())
       .then(data => {
         var paramUrl = window.location.href.split('categorie=')
-       
-        console.log(decodeURI(paramUrl));
-        console.log(decodeURI(paramUrl[1]));
 
         const dataTrie = data.filter(une => une.categorie === decodeURI(paramUrl[1]));
         
         setTableau(dataTrie)
-        console.log(tableau);
+        
         let total = 0;
         let randQuestions = [];
+        let widthTable = dataTrie.length
         
-        while (total < 10 && dataTrie.length > 0) {
-
+        while (total < 10 && widthTable > 0) {
+          widthTable--;
+          
           let random = rand(dataTrie.length);
           let t = 0;
           let selectionReponse= [];
@@ -80,12 +89,19 @@ export default function Quizz() {
         }
         setSelection(randQuestions);
         setIsLoading(false);
+
+        
+    
       })
       .catch(error => {
         setError(error);
         setIsLoading(false);
       });
   }, []);
+
+ 
+
+  
 
   function shuffle(t){
     return t.sort(() => Math.random() - 0.5);
@@ -109,10 +125,11 @@ export default function Quizz() {
 
   const next = () =>{
     compteur++
+    setTimer(20)
     if(compteur >= 10){
       setAfficherResultatHtml(
         <div>
-          <p>Votre résultat: {note}</p> 
+          <p>Votre score: {note}</p> 
           
         </div>
       );
@@ -125,10 +142,11 @@ export default function Quizz() {
 
   function result(maRep) {
     count++;
-    console.log(count);
+    setRunTimer(true)
     setAfficherResultat(true);
     if (selection[question].br === maRep) {
-      note++;    
+      note++; 
+      
       if(count >= 10){
         valeurBtn='Terminer'
       }
@@ -139,7 +157,6 @@ export default function Quizz() {
           <button onClick={next}>{valeurBtn}</button>
         </div>
       );
-      // console.log("bonne réponse");
     } else {
       if(count >= 10){
         valeurBtn='Terminer'
@@ -152,34 +169,77 @@ export default function Quizz() {
           <button onClick={next}>{valeurBtn}</button>
         </div>
       );
-      // console.log("mauvaise réponse");
     }
   }
 
+  const launch = () =>{ 
+    setDemarrer(true);
+    montimer ()
+  };
 
-  if(afficherResultat === false)
-  {
-  return (
 
-    <div>
-      <div >
-        <p>{selection[question].question}</p>
-        <ul>
-          <li onClick ={() => result(selection[question].rep1)}>{selection[question].rep1}</li>
-          <li onClick ={() => result(selection[question].rep2)}>{selection[question].rep2}</li>
-          <li onClick ={() => result(selection[question].rep3)}>{selection[question].rep3}</li>
-          <li onClick ={() => result(selection[question].rep4)}>{selection[question].rep4}</li>
-        </ul>
+
+  function montimer(){
+    if(runTimer === false){
+      console.log('false'+timer, runTimer);
+      var timerId = setInterval(() => {
+      setTimer(timer => {
+        console.log(timer)
+        if (timer === 0) {
+
+          clearInterval(timerId);
+          result('')
+        }
+        setTimer(timer -1)
+        // return timer - 1;
+      });   
+    }, 1000);
+    
+    }else{
+      console.log('true'+timer, runTimer);
+      clearInterval(timerId);
+      setRunTimer(false)
+      setTimer(20)
+  
+    }
+    setRunTimer(true)
+  }
+ 
+ 
+  if(demarrer === false){
+    return(
+      <div>
+        <button onClick={launch}>Démarrer</button>
       </div>
-    </div>
-
-  );
+    )
   }else{
 
-    return(
-      <div>{afficherResultatHtml}</div>
-    )
+    if(afficherResultat === false)
+    {
+      
+    return (
 
-  }
-  
+      <div>
+        <div >
+          <p>{timer}</p>
+          <p>{selection[question].question}</p>
+          <ul>
+            <li onClick ={() => result(selection[question].rep1)}>{selection[question].rep1}</li>
+            <li onClick ={() => result(selection[question].rep2)}>{selection[question].rep2}</li>
+            <li onClick ={() => result(selection[question].rep3)}>{selection[question].rep3}</li>
+            <li onClick ={() => result(selection[question].rep4)}>{selection[question].rep4}</li>
+          </ul>
+        </div>
+      </div>
+
+    );
+
+    }else{
+
+      return(
+        <div>{afficherResultatHtml}</div>
+      )
+
+    }
+  }  
 }
