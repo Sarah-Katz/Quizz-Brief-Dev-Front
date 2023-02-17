@@ -192,6 +192,7 @@ export default function Quizz() {
         }
         setTimer(timer -1)
         // return timer - 1;
+        //comm
       });   
     }, 1000);
     
