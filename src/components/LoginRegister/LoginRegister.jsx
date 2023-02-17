@@ -1,9 +1,10 @@
-    // Importer les fichiers CSS et composants nécessaires
-    import './LoginRegister.css';
-    import '../LoginButton/loginButton';
-    import { RxCross1 } from 'react-icons/rx';
-    import React, { useState, useContext } from 'react';
-    import { UserContext } from '../../context/UserContext';
+// Importer les fichiers CSS et composants nécessaires
+import './LoginRegister.css';
+import '../LoginButton/loginButton';
+import { RxCross1 } from 'react-icons/rx';
+import React, { useState, useContext } from 'react';
+import { UserContext } from '../../context/UserContext';
+import axios from 'axios';
 
 
 const emailRegex = /^\S+@\S+.\S+$/;
@@ -32,6 +33,7 @@ export default function LoginRegister() {
     passwordForm: '',
     confirmPassword: '',
   });
+
   // État initial des erreurs de saisie
   const [formErrors, setFormErrors] = useState({});
 
@@ -40,7 +42,6 @@ export default function LoginRegister() {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
   };
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -98,8 +99,13 @@ export default function LoginRegister() {
       }
 
       if (Object.keys(errors).length === 0) {
-        console.log("Formulaire d'inscription envoyé !");
-        // Envoyer le formulaire d'inscription
+        // Envoi du formulaire vers la BDD
+        const registerData = {
+          name: formData.name,
+          email: formData.emailForm,
+          password: formData.passwordForm
+        };
+        axios.post('http://localhost:8000/api/users', registerData);
       }
     }
 
@@ -203,6 +209,7 @@ export default function LoginRegister() {
                   onChange={handleInputChange}
                   placeholder="Entrez votre Email" />
               </div>
+              {formErrors.emailForm && <span className="error-message">{formErrors.emailForm}</span>}
               {formErrors.emailForm && <span className="error-message">{formErrors.emailForm}</span>}
               <div className="form-group-register">
                 <label htmlFor="inputConfirmEmail"></label>

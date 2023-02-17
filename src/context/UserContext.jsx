@@ -75,7 +75,7 @@ const UserContextProvider = (props) => {
                     console.log('pas cool');
                 }
             });
-        }, 200);       // If the login is successful, set the user data in the state
+        }, 200);
     };
 
     const logout = () => {
