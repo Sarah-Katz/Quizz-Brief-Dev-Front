@@ -1,13 +1,13 @@
 .modal{
     position: absolute;
 }
-.parent{
+/* .parent{
     width: 100%;
     height: 100%;
     position: absolute;
     z-index: 1;
     display: flex;
-}
+} */
 .modal-containt{
     position: fixed;
     bottom: -400px;
@@ -68,9 +68,10 @@ form{
     box-shadow: 0 0 10px gray;
     bottom: 0;
 }
-.show-modal .home-page-container{
-    filter: blur(.5rem);
+.show-modal .parent{
     background-color: rgba(137, 137, 137, 0.643);
+    width: 100vw;
+    height: 100vh;
 }
 .error-message{
   color: red;
@@ -138,12 +139,7 @@ form{
     box-shadow: 0 0 10px gray;
     bottom: 0;
   }
-  
-  .show-register .home-page-container {
-    filter: blur(0.5rem);
-    background-color: rgba(137, 137, 137, 0.643);
-  }
-  
+
   .register-forms {
     width: 100%;
     height: calc(75vh - env(safe-area-inset-bottom));
