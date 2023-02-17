@@ -72,6 +72,9 @@ form{
     filter: blur(.5rem);
     background-color: rgba(137, 137, 137, 0.643);
 }
+.error-message{
+  color: red;
+} 
 
 /* PARTIE REGISTER */
 
@@ -143,7 +146,7 @@ form{
   
   .register-forms {
     width: 100%;
-    height: calc(50vh - env(safe-area-inset-bottom));
+    height: calc(75vh - env(safe-area-inset-bottom));
     display: flex;
     flex-direction: column;
     justify-content: space-around;
