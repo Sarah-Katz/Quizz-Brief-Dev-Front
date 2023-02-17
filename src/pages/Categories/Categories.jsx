@@ -1,6 +1,8 @@
 import './Categories.css'
 import { React, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import NavMenu from '../../components/NavMenu/NavMenu';
+import LoginRegister from '../../components/LoginRegister/LoginRegister';
 
 const url = 'http://localhost:8000/api/categories'
 
@@ -43,6 +45,7 @@ export default function Categories() {
     
     return (
         <div>
+            <NavMenu />
             <div className="categories-all-containt">
                 <h1>Vous êtes connecté.e en tant que :</h1>
                 <ul className='categories-container'>
@@ -56,6 +59,7 @@ export default function Categories() {
                     })}
                 </ul>
             </div>
+            <LoginRegister />
         </div>
     );
 }
