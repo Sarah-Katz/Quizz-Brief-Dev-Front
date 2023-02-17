@@ -10,6 +10,7 @@ export default function NavMenu() {
     let ref = useRef(null);
 
     const showNavMenu = () => {
+        console.log(isLogged);
         let toggle = ref.current;
         toggle.className = 'navmenu-container visible';
     }
