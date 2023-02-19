@@ -13,12 +13,14 @@
   position: absolute;
   gap: 2%;
   left: 0;
-  top: -370px;
+  top: -500px;
   width: 100vw;
   height: 40vh;
   background-color: rgb(37, 156, 224);
   transition: all 1s;
   box-shadow: 0 0 10px gray;
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
 }
 
 .navmenu-link, .navmenu-button {

@@ -9,6 +9,7 @@ var valeurBtn ='Suivant';
 
 
 export default function Quizz() {
+  const isLogged = localStorage.getItem('isLogged');
   const [tableau, setTableau] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);

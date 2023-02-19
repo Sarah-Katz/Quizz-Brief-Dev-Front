@@ -7,6 +7,7 @@ import LoginRegister from '../../components/LoginRegister/LoginRegister';
 const url = 'http://localhost:8000/api/categories'
 
 export default function Categories() {
+    const isLogged = localStorage.getItem('isLogged');
     const [categories, setCategories] = useState([]);
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
