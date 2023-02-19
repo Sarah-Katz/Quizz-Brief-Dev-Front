@@ -16,7 +16,8 @@ const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/;
 
 export default function LoginRegister() {
 
-  // Données utilisateur à envoyer
+  // Etat du login + fonction login
+  const isLogged = localStorage.getItem('isLogged');
   const { login } = useContext(UserContext);
 
   // Switch modal
@@ -64,8 +65,12 @@ export default function LoginRegister() {
     }
 
     if (isLogin && Object.keys(errors).length === 0) {
-      console.log("Formulaire de connexion envoyé !");
-      // Envoyer le formulaire de connexion
+      login(formData.email, formData.password)
+      setTimeout(() => {
+        if (isLogged) {
+          window.location.assign('/categories');
+        };
+      }, 3000)
     }
 
     if (!isLogin) {
@@ -164,7 +169,6 @@ export default function LoginRegister() {
               <button
                 type="submit"
                 className="login-register-button"
-                onClick={() => login(formData.email, formData.password)}
               >Se connecter</button>
               <button
                 onClick={handleShowRegister}
