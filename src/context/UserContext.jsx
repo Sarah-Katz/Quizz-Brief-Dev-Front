@@ -10,8 +10,16 @@ const UserContextProvider = (props) => {
 
     useEffect(() => {
         const storedIsLogged = localStorage.getItem('isLogged');
+        const storedUserID = localStorage.getItem('userID');
+        const storedUserName = localStorage.getItem('userName');
         if (storedIsLogged !== null) {
             setIsLogged(JSON.parse(storedIsLogged));
+        }
+        if (storedUserID !== null) {
+            setUserID(storedUserID);
+        }
+        if (storedUserName !== null) {
+            setUserName(storedUserName);
         }
     }, []);
 
@@ -31,6 +39,8 @@ const UserContextProvider = (props) => {
                     setUserID(user.id);
                     setIsLogged(true);
                     localStorage.setItem('isLogged', true);
+                    localStorage.setItem('userID', user.id);
+                    localStorage.setItem('userName', user.name);
                     foundUser = true;
                     setTimeout(() => {
                         window.location.assign('/categories');
@@ -47,7 +57,9 @@ const UserContextProvider = (props) => {
         setUserName('invité.e');
         setUserID(null);
         setIsLogged(false);
-        localStorage.removeItem('isLogged');
+        localStorage.removeItem('isLogged');        
+        localStorage.removeItem('userID');
+        localStorage.removeItem('userName');
     };
 
     return (
