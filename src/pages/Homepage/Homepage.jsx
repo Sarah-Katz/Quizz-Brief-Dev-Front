@@ -11,7 +11,6 @@ export default function Homepage() {
     const isLogged = localStorage.getItem('isLogged');
     return (
         <div className="all-home-page">
-            <NavMenu />
             <div className="home-page-container">
                 <img className="home-page-logo" src="/img/favicon.ico" alt="LOGO" />
                 <Link
