@@ -1,12 +1,14 @@
 import { logDOM } from "@testing-library/react";
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import Timer from "../../components/Timer/Timer";
 
 const url = "http://localhost:8000/api/questions";
 var note = 0;
 var compteur = 0;
 var count = 0;
 var valeurBtn ='Suivant';
-
 
 export default function Quizz() {
   const isLogged = localStorage.getItem('isLogged');
@@ -18,14 +20,16 @@ export default function Quizz() {
   const [afficherResultat, setAfficherResultat] = useState(false);
   const [afficherResultatHtml, setAfficherResultatHtml] = useState();
   const [demarrer, setDemarrer] = useState(false);
-  const [timer, setTimer] = useState(20);
-  const [runTimer, setRunTimer] = useState(false);
- 
+  const [counter, setCounter] = useState(20);
 
-
-
- 
-
+useEffect(() => {
+ if(counter === 0){
+  result('')
+ }
+  const timer =
+  counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
+return () => clearInterval(timer);
+}, [counter]);
 
   useEffect(() => {
     setIsLoading(true);
@@ -36,7 +40,7 @@ export default function Quizz() {
         var paramUrl = window.location.href.split('categorie=')
 
         const dataTrie = data.filter(une => une.categorie === decodeURI(paramUrl[1]));
-        
+ 
         setTableau(dataTrie)
         
         let total = 0;
@@ -72,7 +76,7 @@ export default function Quizz() {
           }
           let table = [selectionReponse[0],selectionReponse[1],selectionReponse[2],bonneRep];
           const shuffledTable = shuffle(table);
-         
+          
           let donner  = {
             question: dataTrie[random].question,
             categorie: dataTrie[random].categorie,
@@ -84,14 +88,12 @@ export default function Quizz() {
           }
 
           randQuestions.push(donner);
-          data.splice(random, 1);
+          dataTrie.splice(random, 1);  
           total++;  
          
         }
         setSelection(randQuestions);
-        setIsLoading(false);
-
-        
+        setIsLoading(false);   
     
       })
       .catch(error => {
@@ -99,10 +101,6 @@ export default function Quizz() {
         setIsLoading(false);
       });
   }, []);
-
- 
-
-  
 
   function shuffle(t){
     return t.sort(() => Math.random() - 0.5);
@@ -126,12 +124,21 @@ export default function Quizz() {
 
   const next = () =>{
     compteur++
-    setTimer(20)
+    setCounter(20)
     if(compteur >= 10){
+      let id = localStorage.getItem('userID');
+      if(isLogged === true){
+        const partie = {
+          idjoueur: id,
+          score: note
+        };
+      
+        axios.post('http://localhost:8000/api/parties', partie);
+      }else{alert('pas connecté')}
       setAfficherResultatHtml(
         <div>
           <p>Votre score: {note}</p> 
-          
+          <Link to='/categories'>Retour au catégories</Link>
         </div>
       );
     }else{
@@ -143,7 +150,7 @@ export default function Quizz() {
 
   function result(maRep) {
     count++;
-    setRunTimer(true)
+    setCounter(20)
     setAfficherResultat(true);
     if (selection[question].br === maRep) {
       note++; 
@@ -175,37 +182,8 @@ export default function Quizz() {
 
   const launch = () =>{ 
     setDemarrer(true);
-    montimer ()
   };
 
-
-
-  function montimer(){
-    if(runTimer === false){
-      console.log('false'+timer, runTimer);
-      var timerId = setInterval(() => {
-      setTimer(timer => {
-        console.log(timer)
-        if (timer === 0) {
-
-          clearInterval(timerId);
-          result('')
-        }
-        setTimer(timer -1)
-        // return timer - 1;
-        //comm
-      });   
-    }, 1000);
-    
-    }else{
-      console.log('true'+timer, runTimer);
-      clearInterval(timerId);
-      setRunTimer(false)
-      setTimer(20)
-  
-    }
-    setRunTimer(true)
-  }
  
  
   if(demarrer === false){
@@ -223,7 +201,7 @@ export default function Quizz() {
 
       <div>
         <div >
-          <p>{timer}</p>
+        <div>Countdown: {counter}</div>
           <p>{selection[question].question}</p>
           <ul>
             <li onClick ={() => result(selection[question].rep1)}>{selection[question].rep1}</li>
