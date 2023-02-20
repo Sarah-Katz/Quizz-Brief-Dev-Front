@@ -182,6 +182,7 @@ return () => clearInterval(timer);
 
   const launch = () =>{ 
     setDemarrer(true);
+    setCounter(20)
   };
 
  
