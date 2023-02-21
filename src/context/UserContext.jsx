@@ -34,8 +34,6 @@ const UserContextProvider = (props) => {
         setTimeout(() => {
             let foundUser = false;
             users.forEach(user => {
-                    console.log(user);
-                    console.log(mail, user.email);
                 if (mail === user.email && password === user.password) {
                     setUserName(user.name);
                     setUserID(user.id);
@@ -44,9 +42,12 @@ const UserContextProvider = (props) => {
                     localStorage.setItem('userID', user.id);
                     localStorage.setItem('userName', user.name);
                     foundUser = true;
-                    setTimeout(() => {
+                    console.log(window.location.href);
+                    if (window.location.href === 'http://localhost:3000/') {
                         window.location.assign('/categories');
-                    }, 3000)
+                    } else {
+                        window.location.assign(window.location.href);
+                    }
                 }
             });
             if (!foundUser) {
@@ -59,7 +60,7 @@ const UserContextProvider = (props) => {
         setUserName('invité.e');
         setUserID(null);
         setIsLogged(false);
-        localStorage.removeItem('isLogged');        
+        localStorage.removeItem('isLogged');
         localStorage.removeItem('userID');
         localStorage.removeItem('userName');
     };

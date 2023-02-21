@@ -13,12 +13,12 @@ export default function Profile() {
     const userName = localStorage.getItem('userName');
     const [isModif, setModif] = useState(false);
 
-    // const modif = () => {
-    //     let data = {
-    //         name: 'test'
-    //     }
-    //         axios.post(`http://localhost:8000/api/users/${userID}`, data).then(response => response.json()).then(data => console.log(data));
-    // };
+    const modif = () => {
+        let data = {
+            name: 'test'
+        }
+            axios.post(`http://localhost:8000/api/users/${userID}`, data).then(response => response.json()).then(data => console.log(data));
+    };
 
 
     // Conditional render
