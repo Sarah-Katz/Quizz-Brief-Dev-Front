@@ -8,11 +8,12 @@ const url = 'http://localhost:8000/api/categories'
 
 export default function Categories() {
     const isLogged = localStorage.getItem('isLogged');
+    const userName = localStorage.getItem('userName');
     const [categories, setCategories] = useState([]);
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
-    useEffect(()=> {
+    useEffect(() => {
         setIsLoading(true);
         fetch(url)
             .then(response => response.json())
@@ -35,24 +36,24 @@ export default function Categories() {
     }
 
 
-     function AjoutParametreUrl(maCategorie) {
-      const categorie = (`categorie=${maCategorie}`);
-      const urlActuel = window.location.href;
-      const urlComplete = `${urlActuel}${urlActuel.includes('?') ? '&' : '?'}${categorie}`;
-      const urlCompleteEncoder = encodeURI(urlComplete)
+    function AjoutParametreUrl(maCategorie) {
+        const categorie = (`categorie=${maCategorie}`);
+        const urlActuel = window.location.href;
+        const urlComplete = `${urlActuel}${urlActuel.includes('?') ? '&' : '?'}${categorie}`;
+        const urlCompleteEncoder = encodeURI(urlComplete)
 
-      window.history.replaceState(null, null, urlCompleteEncoder);
+        window.history.replaceState(null, null, urlCompleteEncoder);
     }
-    
+
     return (
         <div>
             <NavMenu />
             <div className="categories-all-containt">
-                <h1>Vous êtes connecté.e en tant que :</h1>
+                {isLogged ? <h2>Vous êtes connecté.e en tant que : {userName}</h2> : <h2>Vous n'êtes pas connecté.e</h2>}
                 <ul className='categories-container'>
                     {categories.map((category, i) => {
                         return (
-                            <li className='categorie-buttons' key={i} onClick ={() => AjoutParametreUrl(category.categorie)}>
+                            <li className='categorie-buttons' key={i} onClick={() => AjoutParametreUrl(category.categorie)}>
                                 <Link to='/quizz'>{category.categorie}</Link>
                                 {/* {category.categorie} */}
                             </li>

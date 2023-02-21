@@ -63,6 +63,7 @@ const UserContextProvider = (props) => {
         localStorage.removeItem('isLogged');
         localStorage.removeItem('userID');
         localStorage.removeItem('userName');
+        window.location.assign(window.location.href);
     };
 
     return (
