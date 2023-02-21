@@ -10,7 +10,7 @@ export default function GameHistory() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/api/parties?user_id=${userID}`);
+                const response = await axios.get(`http://localhost:8000/api/parties/${userID}`);
                 const gamesData = response.data;
                 setGames(gamesData);
 
