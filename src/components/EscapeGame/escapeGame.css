@@ -1,0 +1,36 @@
+.fermer{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 30px;
+}
+.confirm{
+    position: absolute;
+    background-color:black;
+    opacity: 0.5;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;   
+}
+.cadre{
+    background-color: white;
+    padding: 20px 50px;
+}
+.reponses{
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.reponse{
+    background-color: black;
+    padding: 10px; 
+    cursor: normal;
+    text-decoration: none;
+    color: white;
+    cursor:pointer;
+}

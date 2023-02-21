@@ -2,6 +2,8 @@ import { logDOM } from "@testing-library/react";
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import EscapeGame from '../../components/EscapeGame/EscapeGame';
+
 
 const url = "http://localhost:8000/api/questions";
 var note = 0;
@@ -50,7 +52,7 @@ useEffect(() => {
       let randQuestions = [];
       let widthTable = dataTrie.length
       
-      while (total < 10 && widthTable > 0) {
+      while (total <= 9 && widthTable > 0) {
         widthTable--;
         
         let random = rand(dataTrie.length);
@@ -133,32 +135,27 @@ const next = () =>{
   }else{
     setRunTimer(true)
   }
-  if(compteur >= 10){
-    let id = localStorage.getItem('userID');
-    if(isLogged === true){
-      const partie = {
-        idjoueur: id,
-        score: note
-       };
-    
-      axios.post('http://localhost:8000/api/parties', partie);
-    }
-    setAfficherResultatHtml(
-      <div>
-        <p>Votre score: {note}</p> 
-        <Link to='/categories'>Retour au catégories</Link>
-      </div>
-    );
-    note = 0;
-    compteur = 0;
-    count = 0;
-
-  }else{
     setQuestion(question+1);
     setAfficherResultat(false);
-  }
 };
 
+function AjoutParametreUrl(note) {
+  let id = localStorage.getItem('userID');
+  if(isLogged === true){
+    const partie = {
+      idjoueur: id,
+      score: note
+    };
+  
+    axios.post('http://localhost:8000/api/parties', partie);
+  }
+  const categorie = (`note=${note}`);
+  const urlActuel = window.location.href;
+  const urlComplete = `${urlActuel}${urlActuel.includes('?') ? '&' : '?'}${categorie}`;
+  const urlCompleteEncoder = encodeURI(urlComplete)
+
+  window.history.replaceState(null, null, urlCompleteEncoder);
+}
 
 function result(maRep) {
   count++;
@@ -170,11 +167,12 @@ function result(maRep) {
     
     if(count >= 10){
       setRunTimer(false)
+      
       setAfficherResultatHtml(
         <div>
           <p>{note}/10</p>
           <p>Bonne réponse</p>
-          <button onClick={next}>Terminer</button>
+          <button onClick ={() => AjoutParametreUrl(note)}><Link to='/results'>Terminer</Link></button>
         </div>
       );
     }else{
@@ -194,7 +192,8 @@ function result(maRep) {
           <p>{note}/10</p>
           <p>Mauvaise réponse</p>
           <p>La réponse correcte était: {selection[question].br}</p>
-          <button onClick={next}>Terminer</button>
+          <button onClick ={() => AjoutParametreUrl(note)}><Link to='/results'>Terminer</Link></button>
+        
         </div>
       );
     }else{
@@ -213,13 +212,15 @@ const launch = () =>{
   setDemarrer(true);
   setCounter(20)
   setRunTimer(true)
+  note = 0;
+  compteur = 0;
+  count = 0;
 };
-
- 
  
 if(demarrer === false){
   return(
     <div>
+      <EscapeGame />
       <button onClick={launch}>Démarrer</button>
     </div>
   )
@@ -231,6 +232,7 @@ if(demarrer === false){
     return (
 
       <div>
+        <EscapeGame />
         <div>{counter}</div>
           <p>{selection[question].question}</p>
           <ul>
@@ -243,10 +245,15 @@ if(demarrer === false){
 
     );
 
-    }else{
+    }
+    else{
       return(
-        <div>{afficherResultatHtml}</div>
+        <div>
+          <EscapeGame />
+          <div>{afficherResultatHtml}</div>
+         
+        </div>
       )
     }
-  }  
+  }   
 }
