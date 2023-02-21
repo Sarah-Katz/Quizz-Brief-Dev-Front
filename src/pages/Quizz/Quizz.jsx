@@ -31,7 +31,6 @@ useEffect(() => {
   if(runTimer === true){  
     const timer =
     counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
-    console.log(timer);
     return () => clearInterval(timer)
   }
 }, [runTimer, counter]);
@@ -250,8 +249,7 @@ if(demarrer === false){
       return(
         <div>
           <EscapeGame />
-          <div>{afficherResultatHtml}</div>
-         
+          <div>{afficherResultatHtml}</div>   
         </div>
       )
     }
