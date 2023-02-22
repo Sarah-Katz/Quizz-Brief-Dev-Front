@@ -1,4 +1,4 @@
-.fermer{
+.fermer svg{
     position: absolute;
     right: 20px;
     top: 20px;
@@ -10,6 +10,7 @@
     height: 40px;
     border-radius: 50%;
     padding: 3px;
+    cursor: pointer;
 }
 .container-confirm{
     position: absolute;
