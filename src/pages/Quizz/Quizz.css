@@ -79,6 +79,9 @@
 .bouton-bonne-reponse a{
     text-decoration: none;
     color: white;
+    padding: 20px 162px;
+    margin-left: -19px;
+    border-radius: 20px;
 }
 .container-bonne-reponse .question{
     background-color: #E8E8E8;
