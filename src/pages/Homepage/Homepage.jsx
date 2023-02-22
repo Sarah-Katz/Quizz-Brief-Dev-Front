@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import LoginButton from "../../components/LoginButton/loginButton";
-import NavMenu from '../../components/NavMenu/NavMenu'
 import './Homepage.css';
 import { Link } from 'react-router-dom'
 import LoginRegister from "../../components/LoginRegister/LoginRegister";
@@ -12,7 +11,10 @@ export default function Homepage() {
     return (
         <div className="all-home-page">
             <div className="home-page-container">
-                <img className="home-page-logo" src="/img/favicon.ico" alt="LOGO" />
+                <div className="logo-container">
+                    <div className="logo-E">EINS<span>TEEN</span></div>
+                    <div className="logo-Q">QUIZZ</div>
+                </div>
                 <Link
                     className="home-page-button"
                     to='/categories'>JOUER

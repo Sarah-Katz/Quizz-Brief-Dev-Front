@@ -55,7 +55,6 @@ export default function Categories() {
                         return (
                             <li className='categorie-buttons' key={i} onClick={() => AjoutParametreUrl(category.categorie)}>
                                 <Link to='/quizz'>{category.categorie}</Link>
-                                {/* {category.categorie} */}
                             </li>
                         );
                     })}

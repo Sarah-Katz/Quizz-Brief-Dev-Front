@@ -8,6 +8,7 @@ function App() {
     <UserContextProvider>
       <BrowserRouter>
         <div className="App">
+        <img className="fondEcran" src="/img/background/stars.jpg" alt="Fond D'ecran etoilés" />
           <Router />
         </div>
       </BrowserRouter>
