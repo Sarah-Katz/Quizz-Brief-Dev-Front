@@ -18,6 +18,7 @@
 }
 
 .game-history-averagescore,
+.game-history-empty,
 .game-history-totalgames {
   font-size: 26px;
     display: flex;
@@ -40,7 +41,8 @@
     border-bottom: 1px solid #fff;
 }
 
-.game-history-list {
+.game-history-list,
+.game-history-empty {
   list-style: none;
   margin-top: 20px;
 }

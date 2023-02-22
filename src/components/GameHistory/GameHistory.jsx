@@ -33,7 +33,7 @@ export default function GameHistory() {
 
     return (
         <div className="game-history-container">
-            <p className='game-history-averagescore'>Moyenne : {averageScore} points</p>
+            {averageScore > 0 ? <p className='game-history-averagescore'>Moyenne : {averageScore} points</p> : <p className='game-history-averagescore'>Joue une partie pour <br></br> voir ta moyenne !</p>}
             <p className='game-history-totalgames'>Vous avez joué {totalGames} parties</p>
 
             {games.length > 0 ? (
@@ -48,7 +48,10 @@ export default function GameHistory() {
                     </ul>
                 </div>
             ) : (
-                <p>Aucune partie trouvée.</p>
+                <div className="game-history">
+                    <h2 className='game-history-title'>Historique de vos parties</h2>
+                    <p className='game-history-empty'>Aucune partie trouvée.</p>
+                </div>
             )}
         </div>
     );
