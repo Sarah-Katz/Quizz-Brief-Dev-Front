@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import EscapeGame from '../../components/EscapeGame/EscapeGame';
+import './Quizz.css'
 
 
 const url = "http://localhost:8000/api/questions";
@@ -140,7 +141,10 @@ const next = () =>{
 
 function AjoutParametreUrl(note) {
   let id = localStorage.getItem('userID');
-  if(isLogged === true){
+  console.log(id);
+  console.log('note:'+note);
+  console.log(isLogged)
+  if(isLogged){
     const partie = {
       idjoueur: id,
       score: note
@@ -168,18 +172,18 @@ function result(maRep) {
       setRunTimer(false)
       
       setAfficherResultatHtml(
-        <div>
-          <p>{note}/10</p>
-          <p>Bonne réponse</p>
-          <button onClick ={() => AjoutParametreUrl(note)}><Link to='/results'>Terminer</Link></button>
+        <div className="container-bonne-reponse">       
+          <p className="text-bonne-reponse">Bonne réponse!</p>
+          <p className="note">Votre score: {note}/10</p>
+          <button className='bouton-bonne-reponse' onClick ={() => AjoutParametreUrl(note)}><Link to='/results'>Terminer</Link></button>
         </div>
       );
     }else{
     setAfficherResultatHtml(
-      <div>
-        <p>{note}/10</p>
-        <p>Bonne réponse</p>
-        <button onClick={next}>Suivant</button>
+      <div className="container-bonne-reponse">   
+        <p className="text-bonne-reponse">Bonne réponse!</p>
+        <p className="note">Votre score: {note}/10</p>
+        <button className='bouton-bonne-reponse' onClick={next}>Suivant</button>
       </div>
     );}
 
@@ -187,21 +191,30 @@ function result(maRep) {
     if(count >= 10){
       setRunTimer(false)
       setAfficherResultatHtml(
-        <div>
-          <p>{note}/10</p>
-          <p>Mauvaise réponse</p>
-          <p>La réponse correcte était: {selection[question].br}</p>
-          <button onClick ={() => AjoutParametreUrl(note)}><Link to='/results'>Terminer</Link></button>
+        <div className="container-bonne-reponse">
+          
+          <p className="text-bonne-reponse">Mauvaise réponse!</p>
+          <p className="question">{selection[question].question}</p>
+          <div className="reponse-correct">
+            <p >La réponse correcte était:</p>
+            <p> {selection[question].br}</p>
+          </div> 
+          <p className="note">Votre score: {note}/10</p>
+          <button className='bouton-bonne-reponse' onClick ={() => AjoutParametreUrl(note)}><Link to='/results'>Terminer</Link></button>
         
         </div>
       );
     }else{
     setAfficherResultatHtml(
-      <div>
-        <p>{note}/10</p>
-        <p>Mauvaise réponse</p>
-        <p>La réponse correcte était: {selection[question].br}</p>
-        <button onClick={next}>Suivant</button>
+      <div className="container-bonne-reponse">     
+        <p className="text-bonne-reponse">Mauvaise réponse!</p>
+        <p className="question">{selection[question].question}</p>
+        <div className="reponse-correct">
+            <p >La réponse correcte était:</p>
+            <p> {selection[question].br}</p>
+        </div> 
+        <p className="note" >Votre score: {note}/10</p>
+        <button className='bouton-bonne-reponse' onClick={next}>Suivant</button>
       </div>
     );}
   }
@@ -218,9 +231,9 @@ const launch = () =>{
  
 if(demarrer === false){
   return(
-    <div>
+    <div className="container-start">
       <EscapeGame />
-      <button onClick={launch}>Démarrer</button>
+      <button className="start" onClick={launch}>Démarrer</button>
     </div>
   )
 }else{
@@ -230,16 +243,16 @@ if(demarrer === false){
     
     return (
 
-      <div>
+      <div className="container-question">
         <EscapeGame />
-        <div>{counter}</div>
-          <p>{selection[question].question}</p>
-          <ul>
-            <li onClick ={() => result(selection[question].rep1)}>{selection[question].rep1}</li>
-            <li onClick ={() => result(selection[question].rep2)}>{selection[question].rep2}</li>
-            <li onClick ={() => result(selection[question].rep3)}>{selection[question].rep3}</li>
-            <li onClick ={() => result(selection[question].rep4)}>{selection[question].rep4}</li>
-          </ul>
+        <div className="timer">{counter}</div>
+        <p className="question">{selection[question].question}</p>
+        <ul>
+          <li onClick ={() => result(selection[question].rep1)}>{selection[question].rep1}</li>
+          <li onClick ={() => result(selection[question].rep2)}>{selection[question].rep2}</li>
+          <li onClick ={() => result(selection[question].rep3)}>{selection[question].rep3}</li>
+          <li onClick ={() => result(selection[question].rep4)}>{selection[question].rep4}</li>
+        </ul>
       </div>
 
     );
