@@ -111,6 +111,9 @@ export default function LoginRegister() {
           password: formData.passwordForm
         };
         axios.post('http://localhost:8000/api/users', registerData);
+        setTimeout(() => {
+          login(formData.emailForm, formData.password);
+        }, 500);
       }
     }
 
@@ -189,7 +192,7 @@ export default function LoginRegister() {
         <div className="parent"></div>
         <div className="register-containt" onSubmit={handleSubmit}>
           <div className="register-modal">
-          <img className="fondEcran" src="/img/background/stars.jpg" alt="Fond D'ecran etoilés" />
+            <img className="fondEcran" src="/img/background/stars.jpg" alt="Fond D'ecran etoilés" />
             <RxCross1 onClick={handleCloseModal} className='close-button' />
             <h1 className='title-register'>Création du compte</h1>
             <form action='' className='register-forms'>
