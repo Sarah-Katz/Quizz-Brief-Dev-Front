@@ -39,24 +39,22 @@
   background: rgba(0, 0, 0, 0.5);
   border: 1px solid #FFFFFF;
   border-radius: 50px;
+  align-self: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
 }
 
 .navmenu-link {
     text-decoration: none;
 }
 
-.navmenu-button {
-    border: none;
-}
-
 .navmenu-cross {
   position: absolute;
   top: 25px;
   right: 25px;
-  color: white;
+  color: red;
   font-size: 40px
 }
 

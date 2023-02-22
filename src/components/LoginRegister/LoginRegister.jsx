@@ -143,7 +143,7 @@ export default function LoginRegister() {
             <form action="" onSubmit={handleSubmit}>
               <RxCross1 className='close-button' onClick={handleCloseModal} />
               <div className="form-group">
-                <label htmlFor="inputEmail"></label>
+                <label htmlFor="inputEmail">E-mail</label>
                 <input
                   type="email"
                   className={formErrors.email ? 'saisie error form-control' : 'form-control'}
@@ -155,7 +155,7 @@ export default function LoginRegister() {
                 {formErrors.email && <span className="error-message"></span>}
               </div>
               <div className="form-group">
-                <label htmlFor="inputPassword" />
+                <label htmlFor="inputPassword">Mot de passe</label>
                 <input
                   type="password"
                   className={formErrors.password ? 'saisie error form-control' : 'form-control'}
@@ -189,11 +189,12 @@ export default function LoginRegister() {
         <div className="parent"></div>
         <div className="register-containt" onSubmit={handleSubmit}>
           <div className="register-modal">
+          <img className="fondEcran" src="/img/background/stars.jpg" alt="Fond D'ecran etoilés" />
             <RxCross1 onClick={handleCloseModal} className='close-button' />
             <h1 className='title-register'>Création du compte</h1>
             <form action='' className='register-forms'>
               <div className="form-group-register">
-                <label htmlFor="inputName"></label>
+                <label htmlFor="inputName">Pseudo</label>
                 <input
                   type="text"
                   className={formErrors.name ? 'saisie error form-control-register' : "form-control-register"}
@@ -204,7 +205,7 @@ export default function LoginRegister() {
               </div>
               {formErrors.name && <span className="error-message">{formErrors.name}</span>}
               <div className="form-group-register">
-                <label htmlFor="inputEmail"></label>
+                <label htmlFor="inputEmail">E-mail</label>
                 <input
                   type="email"
                   name="emailForm"
@@ -214,9 +215,8 @@ export default function LoginRegister() {
                   placeholder="Entrez votre Email" />
               </div>
               {formErrors.emailForm && <span className="error-message">{formErrors.emailForm}</span>}
-              {formErrors.emailForm && <span className="error-message">{formErrors.emailForm}</span>}
               <div className="form-group-register">
-                <label htmlFor="inputConfirmEmail"></label>
+                <label htmlFor="inputConfirmEmail">Confirmation E-mail</label>
                 <input
                   type="email"
                   name="confirmEmail"
@@ -227,7 +227,7 @@ export default function LoginRegister() {
               </div>
               {formErrors.confirmEmail && <span className="error-message">{formErrors.confirmEmail}</span>}
               <div className="form-group-register">
-                <label htmlFor="inputConfirmPassword"></label>
+                <label htmlFor="inputConfirmPassword">Mot de passe</label>
                 <input
                   type="password"
                   name="passwordForm"
@@ -238,7 +238,7 @@ export default function LoginRegister() {
               </div>
               {formErrors.passwordForm && <span className="error-message">{formErrors.passwordForm}</span>}
               <div className="form-group-register">
-                <label htmlFor="inputPassword"></label>
+                <label htmlFor="inputPassword">Confirmation mot de passe</label>
                 <input
                   type="password"
                   name="confirmPassword"
