@@ -1,0 +1,24 @@
+.results-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+.results-container a{
+    text-decoration: none;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    border: 1px solid white;
+    width: 380px;
+    padding: 20px;
+    color: white;
+}
+.results-score{
+    color: white;
+    font-size: 30px;
+}
+.score{
+    font-weight: bold;
+}
