@@ -1,0 +1,50 @@
+.game-history-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.game-history-averagescore,
+.game-history-totalgames,
+.game-history {
+  margin: auto;
+  color: white;
+  width: 344px;
+  height: 92px;
+  padding: 10px;
+  border-radius: 50px;
+  background-color: rgba(0, 0, 0, 0.4);
+  border: 1px solid white;
+}
+
+.game-history-averagescore,
+.game-history-totalgames {
+  font-size: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-history-number {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.game-history {
+  height: 400px;
+  overflow: scroll;
+}
+
+.game-history h2 {
+    padding: 10px;
+    border-bottom: 1px solid #fff;
+}
+
+.game-history-list {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.game-history-game {
+    padding: 5px;
+}

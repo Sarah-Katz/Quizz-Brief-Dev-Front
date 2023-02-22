@@ -24,9 +24,12 @@
     list-style: none;
 }
 .container-question .timer{
-    background-color: white;
-    padding: 5px;
+    color: white;
+    padding: 20px;
     width: 70px;
+    font-size: 60px;
+    font-weight: bold;
+    width: 100px;
 }
 .container-question .question{
     background-color: #E8E8E8;
@@ -76,6 +79,9 @@
 .bouton-bonne-reponse a{
     text-decoration: none;
     color: white;
+    padding: 20px 162px;
+    margin-left: -19px;
+    border-radius: 20px;
 }
 .container-bonne-reponse .question{
     background-color: #E8E8E8;

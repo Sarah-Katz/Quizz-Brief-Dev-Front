@@ -36,21 +36,23 @@ export default function Profile() {
                 <LoginRegister />
             </div>
         );
-    // } else if (isLogged && isModif) {
-    //     <div>
-    //         <NavMenu />
-    //         <div className='profile-container'>
-    //             <h2 className='profile-username'>{userName}</h2>
-    //         </div>
-    //         <LoginRegister />
-    //     </div>
+        // } else if (isLogged && isModif) {
+        //     <div>
+        //         <NavMenu />
+        //         <div className='profile-container'>
+        //             <h2 className='profile-username'>{userName}</h2>
+        //         </div>
+        //         <LoginRegister />
+        //     </div>
     } else {
         return (
             <div>
                 <NavMenu />
                 {/* <FaPen className='profile-pen' /> */}
                 <div className='profile-container'>
-                    <LoginButton />
+                    <div className='profile-login'>
+                        <LoginButton />
+                    </div>
                 </div>
                 <LoginRegister />
             </div>
