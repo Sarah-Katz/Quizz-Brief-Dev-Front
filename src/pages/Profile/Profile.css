@@ -1,5 +1,30 @@
 svg.profile-pen {
-    position: fixed;
-    top: 30px;
-    right: 25px;
-  }
+  position: fixed;
+  top: 30px;
+  right: 25px;
+}
+
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Inter', sans-serif;
+}
+
+.profile-username {  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  width: 344px;
+  height: 65px;
+  margin: 100px auto 25px;
+  color: white;
+  border-radius: 50px;
+}
+
+.profile-login {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
