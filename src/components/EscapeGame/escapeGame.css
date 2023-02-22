@@ -1,24 +1,34 @@
 .fermer{
     position: absolute;
-    right: 10px;
-    top: 10px;
+    right: 20px;
+    top: 20px;
     font-size: 30px;
+    color: red;
+    font-weight: bolder;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    padding: 3px;
 }
-.confirm{
+.container-confirm{
     position: absolute;
-    background-color:black;
-    opacity: 0.5;
+    background-color:rgba(0, 0, 0, 0.6);
     width: 100vw;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    text-align: center;   
+    text-align: center;  
 }
 .cadre{
+    position: absolute;
     background-color: white;
-    padding: 20px 50px;
+    padding: 60px;  
+}
+.cadre p{
+    font-size: 25px;
 }
 .reponses{
     padding-top: 50px;
