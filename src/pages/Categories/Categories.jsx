@@ -47,9 +47,11 @@ export default function Categories() {
 
     return (
         <div>
-            <NavMenu />
             <div className="categories-all-containt">
-                {isLogged ? <h2>Vous êtes connecté.e en tant que : {userName}</h2> : <h2>Vous n'êtes pas connecté.e</h2>}
+            <NavMenu />
+            <div className='loginStatus'>
+            {isLogged ? <h2 className='isConnected'>Salut<br />{userName} !</h2> : <h2 className='isNotConnected'>Vous n'êtes <br />pas connecté.e</h2>}
+            </div>
                 <ul className='categories-container'>
                     {categories.map((category, i) => {
                         return (

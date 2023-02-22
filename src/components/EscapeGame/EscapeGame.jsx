@@ -24,9 +24,9 @@ if(msgConfirmation === false){
     }else{
 
         return (
-            <div className='confirm'>
+            <div className='container-confirm'>
                 <div className='cadre'>
-                    <p>confirmation</p>
+                    <p>Confirmation</p>
                     <div className='reponses'>
                         <Link className='reponse' to='/categories'>oui</Link>
                         <div className='reponse' onClick ={() => non()}>non</div>
