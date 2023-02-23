@@ -38,7 +38,6 @@ const UserContextProvider = (props) => {
         let users = await getUsers();
         const breakError = {};
         setTimeout(() => {
-            let foundUser = false;
             users.forEach(user => {
                 if (mail === user.email && password === user.password) {
                     setUserName(user.name);
