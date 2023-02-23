@@ -9,19 +9,19 @@ export default function EscapeGame() {
     const quitter = () => {
         setMsgConfirmation(true)
     }
-    const non = () => {    
+    const non = () => {
         setMsgConfirmation(false)
     }
 
-if(msgConfirmation === false){
-    return (
-        <div>
-            <div className='fermer'>
-                <RxCross1 onClick={quitter}/>  
-            </div>         
-        </div>
-    );
-    }else{
+    if (msgConfirmation === false) {
+        return (
+            <div>
+                <div className='fermer'>
+                    <RxCross1 onClick={quitter} />
+                </div>
+            </div>
+        );
+    } else {
 
         return (
             <div className='container-confirm'>
@@ -29,9 +29,9 @@ if(msgConfirmation === false){
                     <p>Confirmation</p>
                     <div className='reponses'>
                         <Link className='reponse' to='/categories'>oui</Link>
-                        <div className='reponse' onClick ={() => non()}>non</div>
+                        <div className='reponse' onClick={() => non()}>non</div>
                     </div>
-                 </div>
+                </div>
             </div>
         )
     }

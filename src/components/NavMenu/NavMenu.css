@@ -27,17 +27,18 @@
   border-bottom-right-radius: 25px;
 }
 
-.navmenu-link, .navmenu-button {
-  font-family: 'Allerta';
+.navmenu-link,
+.navmenu-button {
+  font-family: "Allerta";
   font-style: normal;
   font-weight: 400;
   font-size: 25px;
   line-height: 32px;
-  color: #FFFFFF;
+  color: #ffffff;
   width: 300px;
   height: 60px;
   background: rgba(0, 0, 0, 0.5);
-  border: 1px solid #FFFFFF;
+  border: 1px solid #ffffff;
   border-radius: 50px;
   align-self: center;
   display: flex;
@@ -47,7 +48,7 @@
 }
 
 .navmenu-link {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .navmenu-cross {
@@ -55,7 +56,7 @@
   top: 25px;
   right: 25px;
   color: red;
-  font-size: 40px
+  font-size: 40px;
 }
 
 .navmenu-container.visible {

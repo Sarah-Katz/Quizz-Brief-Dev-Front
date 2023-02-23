@@ -21,9 +21,9 @@ export default function NavMenu() {
 
     return (
         <header>
-            <RxHamburgerMenu className='navmenu-burger' onClick={showNavMenu}/>
+            <RxHamburgerMenu className='navmenu-burger' onClick={showNavMenu} />
             <nav className='navmenu-container' ref={ref}>
-                <RxCross1 className='navmenu-cross' onClick={hideNavMenu}/>
+                <RxCross1 className='navmenu-cross' onClick={hideNavMenu} />
                 <Link to='/categories' className='navmenu-link'>Jouer</Link>
                 <Link to='/profile' className='navmenu-link'>Profil</Link>
                 {isLogged === true ? (

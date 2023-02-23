@@ -48,10 +48,10 @@ export default function Categories() {
     return (
         <div>
             <div className="categories-all-containt">
-            <NavMenu />
-            <div className='loginStatus'>
-            {isLogged ? <h2 className='isConnected'>Salut<br />{userName} !</h2> : <h2 className='isNotConnected'>Vous n'êtes <br />pas connecté.e</h2>}
-            </div>
+                <NavMenu />
+                <div className='loginStatus'>
+                    {isLogged ? <h2 className='isConnected'>Salut<br />{userName} !</h2> : <h2 className='isNotConnected'>Vous n'êtes <br />pas connecté.e</h2>}
+                </div>
                 <ul className='categories-container'>
                     {categories.map((category, i) => {
                         return (

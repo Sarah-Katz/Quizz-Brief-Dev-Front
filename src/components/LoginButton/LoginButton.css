@@ -1,14 +1,14 @@
-.login-button-button{
-    font-family: 'Allerta';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 25px;
-    line-height: 32px;
-    color: #FFFFFF;
-    text-decoration: none;
-    width: 344px;
-    height: 92px;
-    background: rgba(0, 0, 0, 0.5);
-    border: 1px solid #FFFFFF;
-    border-radius: 50px;
+.login-button-button {
+  font-family: "Allerta";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 32px;
+  color: #ffffff;
+  text-decoration: none;
+  width: 344px;
+  height: 92px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #ffffff;
+  border-radius: 50px;
 }
