@@ -32,6 +32,7 @@ const UserContextProvider = (props) => {
     const login = async (mail, password) => {
         let users = await getUsers();
         setTimeout(() => {
+            let foundUser = false;
             users.forEach(user => {
                 if (mail === user.email && password === user.password) {
                     setUserName(user.name);
@@ -40,16 +41,18 @@ const UserContextProvider = (props) => {
                     localStorage.setItem('isLogged', true);
                     localStorage.setItem('userID', user.id);
                     localStorage.setItem('userName', user.name);
+                    foundUser = true;
                     console.log(window.location.href);
                     if (window.location.href === 'http://localhost:3000/') {
                         window.location.assign('/categories');
                     } else {
                         window.location.assign(window.location.href);
                     }
-                } else {
-                    alert('Utilisateur introuvable');
                 }
             });
+            if (!foundUser) {
+                alert('Utilisateur introuvable');
+            }
         }, 500);
     };
 
