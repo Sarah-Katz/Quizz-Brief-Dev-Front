@@ -44,9 +44,9 @@ export default function LoginRegister() {
     setFormData({ ...formData, [name]: value });
   };
 
+  const errors = {};
   const handleSubmit = (e) => {
     e.preventDefault();
-    const errors = {};
     if (!formData.email) {
       errors.email = "Veuillez entrer une adresse e-mail.";
     } else if (!emailRegex.test(formData.email)) {
@@ -66,59 +66,61 @@ export default function LoginRegister() {
 
     if (isLogin && Object.keys(errors).length === 0) {
       login(formData.email, formData.password)
-      setTimeout(() => {
-        if (isLogged) {
-          window.location.assign('/categories');
-        };
-      }, 3000)
     }
-
-    if (!isLogin) {
-      if (!formData.name) {
-        errors.name = "Veuillez entrer un nom.";
-      }
-
-      if (!formData.emailForm) {
-        errors.emailForm = "Veuillez entrer une adresse e-mail.";
-      } else if (!emailRegex.test(formData.emailForm)) {
-        errors.emailForm = "Veuillez entrer une adresse e-mail valide.";
-      }
-
-      if (!formData.confirmEmail) {
-        errors.confirmEmail = "Veuillez confirmer l'adresse e-mail.";
-      } else if (formData.confirmEmail !== formData.emailForm) {
-        errors.confirmEmail = "Les adresses e-mail ne correspondent pas.";
-      }
-
-      if (!formData.passwordForm) {
-        errors.passwordForm = "Veuillez entrer un mot de passe.";
-      } else if (!passwordRegex.test(formData.passwordForm)) {
-        errors.passwordForm =
-          "Le mot de passe doit contenir au moins 8 caractères, dont au moins une lettre majuscule, une lettre minuscule et un chiffre.";
-      }
-
-      if (!formData.confirmPassword) {
-        errors.confirmPassword = "Veuillez confirmer le mot de passe.";
-      } else if (formData.confirmPassword !== formData.passwordForm) {
-        errors.confirmPassword = "Les mots de passe ne correspondent pas.";
-      }
-
-      if (Object.keys(errors).length === 0) {
-        // Envoi du formulaire vers la BDD
-        const registerData = {
-          name: formData.name,
-          email: formData.emailForm,
-          password: formData.passwordForm
-        };
-        axios.post('http://localhost:8000/api/users', registerData);
-        setTimeout(() => {
-          login(formData.emailForm, formData.password);
-        }, 500);
-      }
-    }
-
     setFormErrors(errors);
-  };
+  }
+
+    // Formulaire d'inscription
+
+    const handleSubmitRegister = (e) => {
+      e.preventDefault();
+      if (!isLogin) {
+        if (!formData.name) {
+          errors.name = "Veuillez entrer un nom.";
+        }
+  
+        if (!formData.emailForm) {
+          errors.emailForm = "Veuillez entrer une adresse e-mail.";
+        } else if (!emailRegex.test(formData.emailForm)) {
+          errors.emailForm = "Veuillez entrer une adresse e-mail valide.";
+        }
+  
+        if (!formData.confirmEmail) {
+          errors.confirmEmail = "Veuillez confirmer l'adresse e-mail.";
+        } else if (formData.confirmEmail !== formData.emailForm) {
+          errors.confirmEmail = "Les adresses e-mail ne correspondent pas.";
+        }
+  
+        if (!formData.passwordForm) {
+          errors.passwordForm = "Veuillez entrer un mot de passe.";
+        } else if (!passwordRegex.test(formData.passwordForm)) {
+          errors.passwordForm =
+            "Le mot de passe doit contenir au moins 8 caractères, dont au moins une lettre majuscule, une lettre minuscule et un chiffre.";
+        }
+  
+        if (!formData.confirmPassword) {
+          errors.confirmPassword = "Veuillez confirmer le mot de passe.";
+        } else if (formData.confirmPassword !== formData.passwordForm) {
+          errors.confirmPassword = "Les mots de passe ne correspondent pas.";
+        }
+  
+        if (!isLogin && Object.keys(errors).length === 0) {
+          // Envoi du formulaire vers la BDD
+  
+          const registerData = {
+            name: formData.name,
+            email: formData.emailForm,
+            password: formData.passwordForm
+
+          };
+          axios.post('http://localhost:8000/api/users', registerData);
+          setTimeout(() => {
+            login(formData.emailForm, formData.password);
+          }, 500);
+        }
+      }
+      setFormErrors(errors);
+    };
 
   // Gérer la fermeture de la fenêtre modale
   const handleCloseModal = () => {
@@ -172,8 +174,10 @@ export default function LoginRegister() {
               <button
                 type="submit"
                 className="login-register-button"
+                onClick={handleSubmit}
               >Se connecter</button>
               <button
+                type='button'
                 onClick={handleShowRegister}
                 className="login-register-button">
                 S'inscrire
@@ -190,12 +194,12 @@ export default function LoginRegister() {
 
       <div className='modal register'>
         <div className="parent"></div>
-        <div className="register-containt" onSubmit={handleSubmit}>
+        <div className="register-containt">
           <div className="register-modal">
             <img className="fondEcran" src="/img/background/stars.jpg" alt="Fond D'ecran etoilés" />
             <RxCross1 onClick={handleCloseModal} className='close-button' />
             <h1 className='title-register'>Création du compte</h1>
-            <form action='' className='register-forms'>
+            <form action='' className='register-forms' onSubmit={handleSubmitRegister}>
               <div className="form-group-register">
                 <label htmlFor="inputName">Pseudo</label>
                 <input
@@ -261,4 +265,4 @@ export default function LoginRegister() {
       </div>
     );
   };
-}
+};

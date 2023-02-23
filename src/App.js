@@ -5,7 +5,6 @@ import Router from './router/Router';
 
 function App() {
   const screenWidth = window.innerWidth;
-console.log(`Screen width is ${screenWidth}px`);
 let myImg = '/img/background/stars.jpg';
   if (screenWidth > 784){
     myImg = '/img/background/starsDesktop.jpg';

@@ -12,8 +12,8 @@ export default function Homepage() {
         <div className="all-home-page">
             <div className="home-page-container">
                 <div className="logo-container">
-                    <div className="logo-E">EINS<span>TEEN</span></div>
-                    <div className="logo-Q">QUIZZ</div>
+                    <h1 className="logo-E">EINS<span>TEEN</span></h1>
+                    <h1 className="logo-Q">QUIZZ</h1>
                 </div>
                 <Link
                     className="home-page-button"
