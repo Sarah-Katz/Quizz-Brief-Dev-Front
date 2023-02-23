@@ -18,7 +18,7 @@ export default function GameHistory() {
                 // Calculate average score
                 const totalScore = gamesData.reduce((sum, game) => sum + game.score, 0);
                 const avgScore = totalScore / gamesData.length;
-                setAverageScore(avgScore);
+                setAverageScore(Math.round(avgScore));
 
                 // Get number of games
                 const gamesNumber = gamesData.length;
