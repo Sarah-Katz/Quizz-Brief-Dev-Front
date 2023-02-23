@@ -17,7 +17,6 @@ const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/;
 export default function LoginRegister() {
 
   // Etat du login + fonction login
-  const isLogged = localStorage.getItem('isLogged');
   const { login } = useContext(UserContext);
 
   // Switch modal
