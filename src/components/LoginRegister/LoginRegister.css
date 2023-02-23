@@ -111,9 +111,7 @@ form {
   color: white;
 }
 
-.register-modal .close-button {
-  align-self: flex-end;
-  margin-right: 20px;
+.close-button {
   color: red;
   padding: 10px;
   background-color: rgba(255, 255, 255, 0.7);
@@ -178,4 +176,19 @@ form {
   padding: 15px;
   background: rgba(0, 0, 0, 0.5);
   border: 1px solid #ffffff;
+}
+.show-nouser .no-user{
+  color: red;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5px 0;
+  border-radius: 10px;
+  display: flex;
+  font-size: 20px;
+}
+.no-user{
+  width: 100%;
+}
+.no-user p {
+margin: auto;
 }

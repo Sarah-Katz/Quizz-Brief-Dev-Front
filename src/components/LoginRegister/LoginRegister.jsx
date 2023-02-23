@@ -12,8 +12,6 @@ const emailRegex = /^\S+@\S+.\S+$/;
 // Avec au moins une lettre majuscule, une lettre minuscule et un chiffre
 const passwordRegex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/;
 
-
-
 export default function LoginRegister() {
 
   // Etat du login + fonction login
@@ -114,7 +112,7 @@ export default function LoginRegister() {
         };
         axios.post('http://localhost:8000/api/users', registerData);
         setTimeout(() => {
-          login(formData.emailForm, formData.password);
+          login(formData.emailForm, formData.passwordForm);
         }, 500);
       }
     }
@@ -145,7 +143,10 @@ export default function LoginRegister() {
         <div className="modal-containt">
           <div className="login-register">
             <form action="" onSubmit={handleSubmit}>
-              <RxCross1 className='close-button' onClick={handleCloseModal} />
+            <RxCross1 className='close-button' onClick={handleCloseModal} />
+            <div className="no-user">
+              <p>Utilisateur introuvable</p>
+            </div>
               <div className="form-group">
                 <label htmlFor="inputEmail">E-mail</label>
                 <input
@@ -190,7 +191,6 @@ export default function LoginRegister() {
   else {
 
     return (
-
       <div className='modal register'>
         <div className="parent"></div>
         <div className="register-containt">
