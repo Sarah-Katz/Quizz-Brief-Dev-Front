@@ -114,7 +114,7 @@ export default function LoginRegister() {
           };
           axios.post('http://localhost:8000/api/users', registerData);
           setTimeout(() => {
-            login(formData.emailForm, formData.password);
+            login(formData.emailForm, formData.passwordForm);
           }, 500);
         }
       }
