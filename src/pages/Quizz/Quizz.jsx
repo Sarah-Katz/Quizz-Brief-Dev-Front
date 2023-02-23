@@ -1,4 +1,3 @@
-import { logDOM } from "@testing-library/react";
 import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -34,6 +33,7 @@ export default function Quizz() {
         counter > 0 && setInterval(() => setCounter(counter - 1), 1000);
       return () => clearInterval(timer)
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [runTimer, counter]);
 
   useEffect(() => {

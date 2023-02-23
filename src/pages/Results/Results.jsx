@@ -9,7 +9,6 @@ export default function Results({ first }) {
     const userID = localStorage.getItem('userID');
     const isLogged = localStorage.getItem('isLogged');
     var paramUrl = window.location.href.split('http://localhost:3000/results?note=');
-    const [games, setGames] = useState([]);
     const [averageScore, setAverageScore] = useState(0);
 
     useEffect(() => {
@@ -17,7 +16,6 @@ export default function Results({ first }) {
             try {
                 const response = await axios.get(`http://localhost:8000/api/parties/${userID}`);
                 const gamesData = response.data;
-                setGames(gamesData);
 
                 // Calculate average score
                 const totalScore = gamesData.reduce((sum, game) => sum + game.score, 0);
