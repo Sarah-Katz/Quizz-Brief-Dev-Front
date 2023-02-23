@@ -141,9 +141,6 @@ const next = () =>{
 
 function AjoutParametreUrl(note) {
   let id = localStorage.getItem('userID');
-  console.log(id);
-  console.log('note:'+note);
-  console.log(isLogged)
   if(isLogged){
     const partie = {
       idjoueur: id,
