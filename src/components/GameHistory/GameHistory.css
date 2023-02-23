@@ -21,9 +21,9 @@
 .game-history-empty,
 .game-history-totalgames {
   font-size: 26px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .game-history-number {
@@ -37,8 +37,8 @@
 }
 
 .game-history h2 {
-    padding: 10px;
-    border-bottom: 1px solid #fff;
+  padding: 10px;
+  border-bottom: 1px solid #fff;
 }
 
 .game-history-list,
@@ -48,5 +48,5 @@
 }
 
 .game-history-game {
-    padding: 5px;
+  padding: 5px;
 }

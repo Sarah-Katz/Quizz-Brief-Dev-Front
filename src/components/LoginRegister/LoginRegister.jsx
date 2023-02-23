@@ -69,57 +69,57 @@ export default function LoginRegister() {
     setFormErrors(errors);
   }
 
-    // Formulaire d'inscription
+  // Formulaire d'inscription
 
-    const handleSubmitRegister = (e) => {
-      e.preventDefault();
-      if (!isLogin) {
-        if (!formData.name) {
-          errors.name = "Veuillez entrer un nom.";
-        }
-  
-        if (!formData.emailForm) {
-          errors.emailForm = "Veuillez entrer une adresse e-mail.";
-        } else if (!emailRegex.test(formData.emailForm)) {
-          errors.emailForm = "Veuillez entrer une adresse e-mail valide.";
-        }
-  
-        if (!formData.confirmEmail) {
-          errors.confirmEmail = "Veuillez confirmer l'adresse e-mail.";
-        } else if (formData.confirmEmail !== formData.emailForm) {
-          errors.confirmEmail = "Les adresses e-mail ne correspondent pas.";
-        }
-  
-        if (!formData.passwordForm) {
-          errors.passwordForm = "Veuillez entrer un mot de passe.";
-        } else if (!passwordRegex.test(formData.passwordForm)) {
-          errors.passwordForm =
-            "Le mot de passe doit contenir au moins 8 caractères, dont au moins une lettre majuscule, une lettre minuscule et un chiffre.";
-        }
-  
-        if (!formData.confirmPassword) {
-          errors.confirmPassword = "Veuillez confirmer le mot de passe.";
-        } else if (formData.confirmPassword !== formData.passwordForm) {
-          errors.confirmPassword = "Les mots de passe ne correspondent pas.";
-        }
-  
-        if (!isLogin && Object.keys(errors).length === 0) {
-          // Envoi du formulaire vers la BDD
-  
-          const registerData = {
-            name: formData.name,
-            email: formData.emailForm,
-            password: formData.passwordForm
-
-          };
-          axios.post('http://localhost:8000/api/users', registerData);
-          setTimeout(() => {
-            login(formData.emailForm, formData.password);
-          }, 500);
-        }
+  const handleSubmitRegister = (e) => {
+    e.preventDefault();
+    if (!isLogin) {
+      if (!formData.name) {
+        errors.name = "Veuillez entrer un nom.";
       }
-      setFormErrors(errors);
-    };
+
+      if (!formData.emailForm) {
+        errors.emailForm = "Veuillez entrer une adresse e-mail.";
+      } else if (!emailRegex.test(formData.emailForm)) {
+        errors.emailForm = "Veuillez entrer une adresse e-mail valide.";
+      }
+
+      if (!formData.confirmEmail) {
+        errors.confirmEmail = "Veuillez confirmer l'adresse e-mail.";
+      } else if (formData.confirmEmail !== formData.emailForm) {
+        errors.confirmEmail = "Les adresses e-mail ne correspondent pas.";
+      }
+
+      if (!formData.passwordForm) {
+        errors.passwordForm = "Veuillez entrer un mot de passe.";
+      } else if (!passwordRegex.test(formData.passwordForm)) {
+        errors.passwordForm =
+          "Le mot de passe doit contenir au moins 8 caractères, dont au moins une lettre majuscule, une lettre minuscule et un chiffre.";
+      }
+
+      if (!formData.confirmPassword) {
+        errors.confirmPassword = "Veuillez confirmer le mot de passe.";
+      } else if (formData.confirmPassword !== formData.passwordForm) {
+        errors.confirmPassword = "Les mots de passe ne correspondent pas.";
+      }
+
+      if (!isLogin && Object.keys(errors).length === 0) {
+        // Envoi du formulaire vers la BDD
+
+        const registerData = {
+          name: formData.name,
+          email: formData.emailForm,
+          password: formData.passwordForm
+
+        };
+        axios.post('http://localhost:8000/api/users', registerData);
+        setTimeout(() => {
+          login(formData.emailForm, formData.password);
+        }, 500);
+      }
+    }
+    setFormErrors(errors);
+  };
 
   // Gérer la fermeture de la fenêtre modale
   const handleCloseModal = () => {

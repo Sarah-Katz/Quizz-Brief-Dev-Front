@@ -1,102 +1,103 @@
-.container-start{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.container-start {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.start{
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 20px;
-    border: 1px solid white;
-    width: 380px;
-    padding: 15px;
-    color: white;
-    cursor: pointer;
-    font-size: 22px;
+.start {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  border: 1px solid white;
+  width: 380px;
+  padding: 15px;
+  color: white;
+  cursor: pointer;
+  font-size: 22px;
 }
-.container-question{
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+.container-question {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
 }
-.container-question ul{
-    list-style: none;
+.container-question ul {
+  list-style: none;
 }
-.container-question .timer{
-    color: white;
-    padding: 20px;
-    width: 70px;
-    font-size: 60px;
-    font-weight: bold;
-    width: 100px;
+.container-question .timer {
+  color: white;
+  padding: 20px;
+  width: 70px;
+  font-size: 60px;
+  font-weight: bold;
+  width: 100px;
 }
-.container-question .question{
-    background-color: #E8E8E8;
-    border: 1px solid white;
-    color: #6C001B;
-    font-weight: bold;
-    width: 428px;
-    padding: 30px 20px;
-    font-size: 26px;
+.container-question .question {
+  background-color: #e8e8e8;
+  border: 1px solid white;
+  color: #6c001b;
+  font-weight: bold;
+  width: 428px;
+  padding: 30px 20px;
+  font-size: 26px;
 }
-.container-question ul{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 40px;
+.container-question ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 40px;
 }
-.container-question li, .bouton-bonne-reponse{
-    background: rgba(0, 0, 0, 0.5);
-    border-radius: 20px;
-    border: 1px solid white;
-    width: 380px;
-    padding: 15px;
-    color: white;
-    cursor: pointer;
-    font-size: 22px;
+.container-question li,
+.bouton-bonne-reponse {
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 20px;
+  border: 1px solid white;
+  width: 380px;
+  padding: 15px;
+  color: white;
+  cursor: pointer;
+  font-size: 22px;
 }
-.container-bonne-reponse{
-    color: white;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    gap: 50px;
+.container-bonne-reponse {
+  color: white;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
 }
-.note{
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 10px;
-    color: white;
-    border: 1px solid black;
-    border-radius: 20px;
-    width: 200px;
-    font-size: 30px;
+.note {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 10px;
+  color: white;
+  border: 1px solid black;
+  border-radius: 20px;
+  width: 200px;
+  font-size: 30px;
 }
-.text-bonne-reponse{
-    font-size: 30px;
-    letter-spacing: 1px;
+.text-bonne-reponse {
+  font-size: 30px;
+  letter-spacing: 1px;
 }
-.bouton-bonne-reponse a{
-    text-decoration: none;
-    color: white;
-    padding: 20px 150px;
-    margin-left: -19px;
-    border-radius: 20px;
+.bouton-bonne-reponse a {
+  text-decoration: none;
+  color: white;
+  padding: 20px 150px;
+  margin-left: -19px;
+  border-radius: 20px;
 }
-.container-bonne-reponse .question{
-    background-color: #E8E8E8;
-    border: 1px solid white;
-    color: #6C001B;
-    font-weight: bold;
-    width: 428px;
-    padding: 30px 20px;
-    font-size: 26px;
+.container-bonne-reponse .question {
+  background-color: #e8e8e8;
+  border: 1px solid white;
+  color: #6c001b;
+  font-weight: bold;
+  width: 428px;
+  padding: 30px 20px;
+  font-size: 26px;
 }
-.reponse-correct{
-    font-size: 30px;
+.reponse-correct {
+  font-size: 30px;
 }

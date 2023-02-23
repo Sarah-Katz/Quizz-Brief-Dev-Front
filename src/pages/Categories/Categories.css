@@ -1,77 +1,76 @@
-.categories-all-containt{
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    text-align: center;
+.categories-all-containt {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
 }
 
-.loginStatus{
-    font-family: 'Allerta';
-    font-style: normal;
-    font-weight: 400;
-    text-decoration: none;
-    width: 90vw;
-    height: 10%;
+.loginStatus {
+  font-family: "Allerta";
+  font-style: normal;
+  font-weight: 400;
+  text-decoration: none;
+  width: 90vw;
+  height: 10%;
 }
-.loginStatus>.isNotConnected{
-    width: 100%;
-    height: 100%;
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-radius: 15px;
-    font-size: 1.8rem;
-}
-
-.loginStatus>.isConnected{
-    width: 100%;
-    height: 100%;
-    color: white;
-    /* border: 1px solid white; */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 2rem;
+.loginStatus > .isNotConnected {
+  width: 100%;
+  height: 100%;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 15px;
+  font-size: 1.8rem;
 }
 
-
-.categories-container{
-    height: 600px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    text-align: center;
-    list-style: none;
-    padding: 0;
-    color: white;
-    font-size: 20px;
-    font-weight: bolder;
-    padding-bottom: 30px;
+.loginStatus > .isConnected {
+  width: 100%;
+  height: 100%;
+  color: white;
+  /* border: 1px solid white; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 2rem;
 }
 
-.categorie-buttons{
-    font-family: 'Allerta';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 25px;
-    line-height: 32px;
-    color: #FFFFFF;
-    width: 344px;
-    height: 92px;
-    background: rgba(0, 0, 0, 0.5);
-    border: 1px solid #FFFFFF;
-    border-radius: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+.categories-container {
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  color: white;
+  font-size: 20px;
+  font-weight: bolder;
+  padding-bottom: 30px;
+}
+
+.categorie-buttons {
+  font-family: "Allerta";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 25px;
+  line-height: 32px;
+  color: #ffffff;
+  width: 344px;
+  height: 92px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #ffffff;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .categorie-buttons a {
-    text-decoration: none;
-    color: white;
+  text-decoration: none;
+  color: white;
 }
