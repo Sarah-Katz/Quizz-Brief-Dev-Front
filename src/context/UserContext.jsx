@@ -29,8 +29,14 @@ const UserContextProvider = (props) => {
         return users;
     };
 
+    const handleShowNoUser = () => {
+        const body = document.querySelector('body');
+        body.classList.add('show-nouser');
+      };
+
     const login = async (mail, password) => {
         let users = await getUsers();
+        const breakError = {};
         setTimeout(() => {
             let foundUser = false;
             users.forEach(user => {
@@ -41,18 +47,19 @@ const UserContextProvider = (props) => {
                     localStorage.setItem('isLogged', true);
                     localStorage.setItem('userID', user.id);
                     localStorage.setItem('userName', user.name);
-                    foundUser = true;
-                    console.log(window.location.href);
                     if (window.location.href === 'http://localhost:3000/') {
                         window.location.assign('/categories');
+                        return;
                     } else {
                         window.location.assign(window.location.href);
                     }
-                }
+                    throw(breakError);
+                } 
             });
-            if (!foundUser) {
-                alert('Utilisateur introuvable');
-            }
+            setTimeout(() =>{
+                handleShowNoUser();
+            }, 300)
+
         }, 500);
     };
 
