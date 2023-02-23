@@ -23,4 +23,4 @@
   html, body, #root, #App, #App>div {
     height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom));
     width: 100vw;
-  }  
+  }

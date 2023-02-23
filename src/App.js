@@ -4,11 +4,16 @@ import UserContextProvider from './context/UserContext';
 import Router from './router/Router';
 
 function App() {
+  const screenWidth = window.innerWidth;
+let myImg = '/img/background/stars.jpg';
+  if (screenWidth > 784){
+    myImg = '/img/background/starsDesktop.jpg';
+  };
   return (
     <UserContextProvider>
       <BrowserRouter>
         <div className="App">
-        <img className="fondEcran" src="/img/background/stars.jpg" alt="Fond D'ecran etoilés" />
+        <img className="fondEcran" src={myImg} alt="Fond D'ecran etoilés" />
           <Router />
         </div>
       </BrowserRouter>
