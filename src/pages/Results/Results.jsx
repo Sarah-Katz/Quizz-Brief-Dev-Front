@@ -20,7 +20,7 @@ export default function Results({ first }) {
                 // Calculate average score
                 const totalScore = gamesData.reduce((sum, game) => sum + game.score, 0);
                 const avgScore = totalScore / gamesData.length;
-                setAverageScore(avgScore);
+                setAverageScore(Math.round(avgScore));
 
             } catch (error) {
                 console.error(error);
