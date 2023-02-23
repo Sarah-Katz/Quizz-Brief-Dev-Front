@@ -1,0 +1,69 @@
+.all-home-page {
+  overflow: hidden;
+  /* position: fixed; */
+  height: calc(100vh - env(safe-area-inset-bottom));
+}
+
+.home-page-container {
+  width: 100vw;
+  height: calc(90vh - env(safe-area-inset-bottom));
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+.home-page-button {
+  font-family: "Allerta";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 49px;
+  color: #ffffff;
+  text-decoration: none;
+  width: 253px;
+  height: 92px;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid #ffffff;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.logo-container {
+  width: 100vw;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.logo-E {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: 0.4em;
+  color: #ffffff;
+  mix-blend-mode: normal;
+  text-shadow: 0px 0px 8px black;
+}
+
+.logo-Q {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 48px;
+  letter-spacing: 0.8em;
+  text-shadow: 0px 0px 10px black;
+  color: #ffffff;
+  padding-left: 15px;
+}
+
+.logo-E > span {
+  color: red;
+}
