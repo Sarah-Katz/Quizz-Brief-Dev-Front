@@ -36,7 +36,7 @@ export default function Results({ first }) {
                 <div className='results-infos'>
                     <div className='results-score'>Votre score:</div>
                     <div className='score'>{paramUrl}</div>
-                    {averageScore > 0 ? <p className='results-averagescore'>Moyenne: <br /> {averageScore}</p> : <p className='results-averagescore'>Joue une partie pour <br></br> voir ta moyenne !</p>}
+                    {averageScore > 0 ? <p className='results-averagescore'>Moyenne: <br /> {averageScore}</p> : <p className='results-averagescore'></p>}
                 </div>
                 <div className='results-buttons'>
                     <Link to='/categories'>Retour au catégories</Link>
